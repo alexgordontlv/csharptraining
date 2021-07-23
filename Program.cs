@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
@@ -14,11 +15,13 @@ namespace sample2
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Buddy newName { get; set; }
+        public string[] AllNames { get; set; }
     }
     class Person
     {
         public int Age { get; set; }
         public Name Name { get; set; }
+        public string Address { get; set; }
     }
     class Program
     {
@@ -43,12 +46,20 @@ namespace sample2
                 var key = item.Name;
                 var value = item.GetValue(obj);
                 var valueType = value.GetType();
-                if (valueType.IsClass && valueType != typeof(string))
+                if (valueType.IsClass && valueType != typeof(string) && !valueType.IsArray)
                 {
                     System.Console.WriteLine($"{PrintSpace(level)}{key} = ");
                     PrintObjectsByOrder(value, level + 1);
                 }
+                else if (valueType.IsArray)
+                {
+                    System.Console.WriteLine($"{PrintSpace(level)}{key} = ");
+                    foreach (var arrayItem in value as IEnumerable)
+                    {
+                        System.Console.WriteLine($"{PrintSpace(level + 1)}{arrayItem}");
+                    }
 
+                }
                 else System.Console.WriteLine($"{PrintSpace(level)}{key} = {value}");
             }
 
@@ -61,6 +72,8 @@ namespace sample2
             name.LastName = "Doe";
             person.Age = 55;
             name.newName = new Buddy { MyProperty = 5 };
+            name.AllNames = new string[] { "lola", "katya", "masha" };
+            person.Address = "215 Rochester street, NY";
             person.Name = name;
             PrintObjectsByOrder(person);
 
