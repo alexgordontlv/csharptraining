@@ -1,0 +1,12 @@
+/Users/alexgordon/Desktop/sample2/bin/Debug/netcoreapp3.1/sample2.deps.json
+/Users/alexgordon/Desktop/sample2/bin/Debug/netcoreapp3.1/sample2.runtimeconfig.json
+/Users/alexgordon/Desktop/sample2/bin/Debug/netcoreapp3.1/sample2.runtimeconfig.dev.json
+/Users/alexgordon/Desktop/sample2/bin/Debug/netcoreapp3.1/sample2.dll
+/Users/alexgordon/Desktop/sample2/bin/Debug/netcoreapp3.1/sample2.pdb
+/Users/alexgordon/Desktop/sample2/obj/Debug/netcoreapp3.1/sample2.csprojAssemblyReference.cache
+/Users/alexgordon/Desktop/sample2/obj/Debug/netcoreapp3.1/sample2.AssemblyInfoInputs.cache
+/Users/alexgordon/Desktop/sample2/obj/Debug/netcoreapp3.1/sample2.AssemblyInfo.cs
+/Users/alexgordon/Desktop/sample2/obj/Debug/netcoreapp3.1/sample2.csproj.CoreCompileInputs.cache
+/Users/alexgordon/Desktop/sample2/obj/Debug/netcoreapp3.1/sample2.dll
+/Users/alexgordon/Desktop/sample2/obj/Debug/netcoreapp3.1/sample2.pdb
+/Users/alexgordon/Desktop/sample2/obj/Debug/netcoreapp3.1/sample2.genruntimeconfig.cache
