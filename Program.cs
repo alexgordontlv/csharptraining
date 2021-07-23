@@ -5,9 +5,12 @@ using System.Text;
 
 namespace sample2
 {
+
     class Buddy
     {
         public int MyProperty { get; set; }
+        public Name Name { get; set; }
+
     }
 
     class Name
@@ -25,6 +28,8 @@ namespace sample2
     }
     class Program
     {
+        public static Hashtable myHash = new Hashtable();
+
         public static string PrintSpace(int level)
         {
             var stringBuilder = new StringBuilder("");
@@ -38,7 +43,7 @@ namespace sample2
         public static void PrintObjectsByOrder<T>(T obj, int level = 0) where T : class
         {
             if (obj == null) return;
-
+            myHash.Add(obj, true);
             var classProps = obj.GetType().GetProperties();
             System.Console.WriteLine($"{PrintSpace(level - 1)}Object Name is:{obj.GetType().Name}\n{PrintSpace(level)}--------------");
             foreach (var item in classProps)
@@ -48,6 +53,11 @@ namespace sample2
                 var valueType = value.GetType();
                 if (valueType.IsClass && valueType != typeof(string) && !valueType.IsArray)
                 {
+                    if (myHash.ContainsKey(value))
+                    {
+                        System.Console.WriteLine($"{PrintSpace(level)}***You Have A Duplicate***");
+                        return;
+                    }
                     System.Console.WriteLine($"{PrintSpace(level)}{key} = ");
                     PrintObjectsByOrder(value, level + 1);
                 }
@@ -72,6 +82,7 @@ namespace sample2
             name.LastName = "Doe";
             person.Age = 55;
             name.newName = new Buddy { MyProperty = 5 };
+            name.newName.Name = name;
             name.AllNames = new string[] { "lola", "katya", "masha" };
             person.Address = "215 Rochester street, NY";
             person.Name = name;
